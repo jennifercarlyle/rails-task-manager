@@ -1,11 +1,15 @@
-<h1>My Tasks:</h1>
+<div class="container">
+  <h1>My Tasks:</h1>
 
-<% @tasks.each do |task| %>
-  <% if task.completed == true %>
-    <p><%= "✅"%><%= link_to task.title, task_path(task) %></p>
-  <% else %>
-    <p><%= "❌"%><%= link_to task.title, task_path(task) %></p>
-  <% end %>
-<% end %>
+  <div>
+    <% @tasks.each do |task| %>
+      <% if task.completed == true %>
+        <p><i class="far fa-check-square"></i> <%= link_to task.title, task_path(task) %></p>
+      <% else %>
+        <p><i class="far fa-square"></i> <%= link_to task.title, task_path(task) %></p>
+      <% end %>
+    <% end %>
+  </div>
 
-
+  <%= link_to "Add a task", new_task_path, class: "btn btn-primary" %>
+</div>
